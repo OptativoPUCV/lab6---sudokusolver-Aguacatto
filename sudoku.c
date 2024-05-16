@@ -43,31 +43,26 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n)
-{
-   int row[9][10] = {0};
-   int col[9][10] = {0};
-   int box[9][10] = {0};
-   int i,j;
-   for(i = 0 ; i < 9 ; i++)
-   {
-      for(j = 0 ; j < 9 ; j++)
-      {
-         int num = n->sudo[i][j];
-         if(num != 0)
-         {
-            if(row[i][num] || col[j][num] || box[(i / 3) * 3 + j / 3][num])
-            {
-               return 0;
-            }
-            row[i][num] = 1;
-            col[j][num] = 1;
-            box[(i / 3) * 3 + j / 3][num] = 1;
-         }
+int is_valid(Node* n){
+  int row[9][10] = {0};
+  int col[9][10] = {0};
+  int box[9][10] = {0};
+  int i, j;
+
+  for (i = 0; i < 9; i++) {
+    for (j = 0; j < 9; j++) {
+      int num = n->sudo[i][j];
+      if (num != 0) {
+        if (row[i][num] || col[j][num] || box[(i / 3) * 3 + j / 3][num]) {
+          return 0;
+        }
+        row[i][num] = 1;
+        col[j][num] = 1;
+        box[(i / 3) * 3 + j / 3][num] = 1;
       }
-   }
-   
-    return 1;
+    }
+  }
+  return 1;
 }
 
 
