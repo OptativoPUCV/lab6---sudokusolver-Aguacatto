@@ -45,41 +45,28 @@ void print_node(Node* n){
 
 int is_valid(Node* n)
 {
-   for(int i = 0; i < 9; i++)
+   int row[9][10] = {0};
+   int col[9][10] = {0};
+   int box[9][10] = {0};
+   int i,j;
+   for(i = 0 ; i < 9 ; i++)
    {
-      for(int j = 0; j < 9; j++)
+      for(j = 0 ; j < 9 ; j++)
       {
-         if(n->sudo[i][j] != 0)
+         int num = n->sudo[i][j];
+         if(num != 0)
          {
-            for(int col = 0; col < 9; col++)
+            if(row[i][num] || col[j][num] || box[(i / 3) * 3 + j / 3][num])
             {
-               if(col != j && n->sudo[i][col] == n->sudo[i][j])
-               {
-                  return 0;
-               }
+               return 0;
             }
-            for(int row = 0; row < 9; row++)
-            {
-               if(row != i && n->sudo[row][j] == n->sudo[i][j])
-               {
-                  return 0;
-               }
-            }
-            int startRow = i - i % 3;
-            int startCol = j - j % 3;
-            for(int row = startRow ; row < startRow + 3; row++)
-            {
-               for(int col = startCol; col < startCol + 3; col++)
-               {
-                  if(row != i && col != j && n->sudo[row][col] == n->sudo[i][j])
-                  {
-                     return 0;
-                  }
-               }
-            }
+            row[i][num] = 1;
+            col[j][num] = 1;
+            box[(i / 3) * 3 + j / 3][num] = 1;
          }
       }
    }
+   
     return 1;
 }
 
