@@ -65,7 +65,18 @@ int is_valid(Node* n)
                   return 0;
                }
             }
-            
+            int startRow = i - i % 3;
+            int startCol = j - j % 3;
+            for(int row = startRow ; row < startRow + 3; row++)
+            {
+               for(int col = startCol; col < startCol + 3; col++)
+               {
+                  if(row != i && col != j && n->sudo[row][col] == n->sudo[i][j])
+                  {
+                     return 0;
+                  }
+               }
+            }
          }
       }
    }
