@@ -43,8 +43,32 @@ void print_node(Node* n){
     printf("\n");
 }
 
-int is_valid(Node* n){
-
+int is_valid(Node* n)
+{
+   for(int i = 0; i < 9; i++)
+   {
+      for(int j = 0; j < 9; j++)
+      {
+         if(n->sudo[i][j] != 0)
+         {
+            for(int col = 0; col < 9; col++)
+            {
+               if(col != j && n->sudo[i][col] == n->sudo[i][j])
+               {
+                  return 0;
+               }
+            }
+            for(int row = 0; row < 9; row++)
+            {
+               if(row != i && n->sudo[row][j] == n->sudo[i][j])
+               {
+                  return 0;
+               }
+            }
+            
+         }
+      }
+   }
     return 1;
 }
 
