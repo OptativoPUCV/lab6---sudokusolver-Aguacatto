@@ -127,6 +127,13 @@ Node* DFS(Node* initial, int* cont)
       }
 
       List *adjNodes = get_adj_nodes(current);
+      if(get_size(adjNodes) == 0)
+      {
+         clean(s);
+         free(s);
+         free(adjNodes);
+         return NULL;
+      }
       Node *aux = first(adjNodes);
       while(aux != NULL)
       {
