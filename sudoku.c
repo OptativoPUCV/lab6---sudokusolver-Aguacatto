@@ -123,7 +123,7 @@ Node* DFS(Node* initial, int* cont)
       {
          clean(s);
          free(s);
-         return NULL;
+         return current;
       }
 
       List *adjNodes = get_adj_nodes(current);
