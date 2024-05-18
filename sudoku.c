@@ -125,9 +125,11 @@ Node* DFS(Node* initial, int* cont)
       }
 
       List *adjNodes = get_adj_nodes(current);
-      for(Node* adjNode = first(adjNodes); adjNode != NULL; adjNode = next(adjNodes))
+      Node *aux = first(adjNodes);
+      while(aux != NULL)
       {
-         push(s, adjNode);
+         push(s, aux);
+         aux = next(adjNodes);
       }
       free(current);
       free(adjNodes);
