@@ -113,24 +113,17 @@ Node* DFS(Node* initial, int* cont)
    push(s, initial);
    *cont = 0;
 
-   while(get_size(s) != 0)
+   while(top(s) != NULL)
    {
-      Node *current = top(s);
+      Node *n = top(s);
       pop(s);
-      (*cont)++;
+      *cont = *cont + 1;
 
-      if(is_final(current))
+      if (is_final(n))
       {
-         return current;
+         return n;
       }
-
-      List *adjNodes = get_adj_nodes(current);
-      for(Node* adjNode = first(adjNodes); adjNode != NULL; adjNode = next(adjNodes))
-      {
-         push(s, adjNode);
-      }
-      free(current);
-      free(adjNodes);
+      
    }
    return NULL;
 }
