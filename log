@@ -96,3 +96,14 @@ Sat 18 May 2024 02:17:08 AM UTC:
  1 file changed, 25 insertions(+), 1 deletion(-)
  tests:  0|0
 bc18528
+Sat 18 May 2024 02:23:06 AM UTC: 
+ sudoku.c | 1 -
+ 1 file changed, 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:132:13: error: unused variable ‘adjNodes’ [-Werror=unused-variable]
+  132 |       List *adjNodes = get_adj_nodes(current);
+      |             ^~~~~~~~
+cc1: all warnings being treated as errors
+Compilation failed
+70ebf03

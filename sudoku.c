@@ -135,7 +135,6 @@ Node* DFS(Node* initial, int* cont)
          push(s, adjNodes);
       }
       free(current);
-      free(adjNodes);
    }
    return NULL;
 }
