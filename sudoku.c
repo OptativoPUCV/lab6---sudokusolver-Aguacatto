@@ -130,11 +130,12 @@ Node* DFS(Node* initial, int* cont)
       }
 
       List *adjNodes = get_adj_nodes(current);
-      for(List *adjNodes = first(adjNodes) ; adjNodes != NULL ; adjNodes = next(adjNodes))
+      for(Node* adjNode = first(adjNodes); adjNodes != NULL; adjNodes = next(adjNodes))
       {
-         push(s, adjNodes);
+         push(s, adjNode);
       }
       free(current);
+      
    }
    return NULL;
 }
