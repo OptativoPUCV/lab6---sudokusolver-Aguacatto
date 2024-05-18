@@ -115,12 +115,14 @@ Node* DFS(Node* initial, int* cont)
 
    while(s != NULL)
    {
-      Node *current = top(s);
+      Node *current = (Node *)top(s);
       pop(s);
       (*cont)++;
 
       if(is_final(current))
       {
+         clean(s);
+         free(s);
          return current;
       }
 
@@ -131,6 +133,7 @@ Node* DFS(Node* initial, int* cont)
          push(s, aux);
          aux = next(adjNodes);
       }
+
       free(current);
       free(adjNodes);
    }
