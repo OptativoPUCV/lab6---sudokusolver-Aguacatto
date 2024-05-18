@@ -123,7 +123,6 @@ Node* DFS(Node* initial, int* cont)
       {
          clean(s);
          free(s);
-         return current;
          return NULL;
       }
 
