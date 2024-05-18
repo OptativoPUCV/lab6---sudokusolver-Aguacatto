@@ -113,7 +113,7 @@ Node* DFS(Node* initial, int* cont)
    push(s, initial);
    *cont = 0;
 
-   while(s != NULL)
+   while(get_size(s) != 0)
    {
       Node *current = top(s);
       pop(s);
