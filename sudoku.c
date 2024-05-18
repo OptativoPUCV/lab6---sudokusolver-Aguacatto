@@ -103,11 +103,8 @@ int is_final(Node* n)
    {
       for(int j = 0 ; j < 0 ; j++)
       {
-         int num = n->sudo[i][j];
-         if(num == 0)
-         {
+         if(n->sudo[i][j] == 0)
             return 0;
-         }
       }
    }
    return 1;
