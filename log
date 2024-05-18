@@ -150,3 +150,16 @@ Sat 18 May 2024 10:46:50 PM UTC:
  tests:  7|1
 total_score: 55/70
 6c0d2ae
+Sat 18 May 2024 10:47:51 PM UTC: 
+ sudoku.c | 9 ++++++++-
+ 1 file changed, 8 insertions(+), 1 deletion(-)
+In file included from test.c:5:
+sudoku.c: In function ‘DFS’:
+sudoku.c:133:14: error: expected ‘;’ before ‘}’ token
+  133 |       free(s)
+      |              ^
+      |              ;
+  134 |    }
+      |    ~          
+Compilation failed
+73e4de0

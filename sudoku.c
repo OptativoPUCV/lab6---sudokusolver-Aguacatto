@@ -123,7 +123,14 @@ Node* DFS(Node* initial, int* cont)
       {
          return n;
       }
-      
+      List *adj = get_adj_nodes(n);
+      Node *aux = first(adj);
+      while(aux)
+      {
+         push(s, aux);
+         aux = next(adj);
+      }
+      free(s)
    }
    return NULL;
 }
